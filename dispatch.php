@@ -74,7 +74,7 @@
             </section><!-- End Cta Section -->
 
             <!-- ======= Services Section ======= -->
-            <section id="services" class="services">
+            <section class="services">
                 <div class="container">
 
                     <div class="section-title" data-aos="fade-down">
@@ -240,7 +240,10 @@
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
                                 <label for="best_time" class="mb-2"><b>upload w-9 , certificates of insurance MC# and factory company <span
                                             class="text-danger">*</span></b></label>
-                                <input id="html5_1fk1pbmdburh18td1311cfl1jf03" type="file" class="form-control" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple="" accept="">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
+        <label class="custom-file-label" for="exampleInputFile">
+           Select file...
+        </label>
                             </div>
                             <br>
                             <div class="text-center">
