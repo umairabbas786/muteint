@@ -86,10 +86,10 @@
                         data-aos="fade-up" data-aos-delay="400">
                         <div class="row">
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
-                                <label for="comapny_name" class="mb-2"><b>Company Name <span
+                                <label for="company_name" class="mb-2"><b>Company Name <span
                                             class="text-danger">*</span></b></label>
-                                <input type="text" name="comapny_name" class="form-control" id="comapny_name"
-                                    placeholder="Comapny Name" required>
+                                <input type="text" name="company_name" class="form-control" id="company_name"
+                                    placeholder="Company Name" required>
                             </div>
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
                                 <label for="motor_carrier" class="mb-2"><b>Motor Carrier # <span
@@ -105,7 +105,7 @@
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
                                 <label for="date" class="mb-2"><b>Trailer Type <span
                                             class="text-danger">*</span></b></label>
-                                <select name="trailer_type" class="form-select" id="trailer_type">
+                                <select name="trailer_type" class="form-select" id="trailer_type" required>
                                     <option value="" selected disabled>Select Trailer Type</option>
                                     <option value="Dry Vans">Dry Vans</option>
                                     <option value="Flatbeds">Flatbeds</option>
@@ -166,10 +166,87 @@
 							</li>
                                 </ul>
                             </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="desired_region" class="mb-2"><b>Do you have any FreightGuard Reports? (copy) <span
+                                            class="text-danger">*</span></b></label>
+                            <ul style="list-style-type:none;" id="freightguard_reports">
+                                <li>
+                                    <input name="freightguard_reports" type="radio" value="Yes" id="freightguardreports">
+                                    <label for="freightguardreports" id="freightguardreports">Yes</label>
+                                </li>
+                                <li>
+                                    <input name="freightguard_reports" type="radio" value="No" id="freightguard_report">
+                                    <label for="freightguard_report" id="freightguard_report">No</label>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                            <label for="desired_region" class="mb-2"><b>If you answered yes, explain.</b></label>
+                                <textarea class="form-control" name="reports" rows="5" placeholder="Explain Breifly"></textarea>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                            <label for="desired_region" class="mb-2"><b>Desired Weekly Gross Amount (copy)</b></label>
+                                <input type="text" name="gross_amount" class="form-control" id="gross_amount"
+                                    placeholder="Desired Weekly Grossed Amount">
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="desired_region" class="mb-2"><b>Is there a tracking device in the truck? <span
+                                            class="text-danger">*</span></b></label>
+                            <ul style="list-style-type:none;" id="tracking_device">
+                                <li>
+                                    <input name="tracking_device" type="radio" value="Yes" id="trackingdevice">
+                                    <label for="trackingdevice" id="trackingdevice">Yes</label>
+                                </li>
+                                <li>
+                                    <input name="tracking_device" type="radio" value="No" id="tracking_devicee">
+                                    <label for="tracking_devicee" id="tracking_devicee">No</label>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="name" class="mb-2"><b>Full Name <span
+                                            class="text-danger">*</span></b></label>
+                                <input type="text" name="name" class="form-control" id="name"
+                                    placeholder="Full Name" required>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="title" class="mb-2"><b>Title</b></label>
+                                <input type="text" name="title" class="form-control" id="title"
+                                    placeholder="title">
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="email" class="mb-2"><b>Email Address <span
+                                            class="text-danger">*</span></b></label>
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="Email Address" required>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="phone" class="mb-2"><b>Phone Number <span
+                                            class="text-danger">*</span></b></label>
+                                <input type="number" name="phone" class="form-control" id="phone"
+                                    placeholder="Phone Number" required>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="extension" class="mb-2"><b>Extension</b></label>
+                                <input type="text" name="extension" class="form-control" id="extension"
+                                    placeholder="Extension">
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="best_time" class="mb-2"><b>What is the best time of day to contact you? <span
+                                            class="text-danger">*</span></b></label>
+                                <input type="text" name="best_time" class="form-control" id="best_time"
+                                    placeholder="Best Time of the Day?" required>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="best_time" class="mb-2"><b>upload w-9 , certificates of insurance MC# and factory company <span
+                                            class="text-danger">*</span></b></label>
+                                <input id="html5_1fk1pbmdburh18td1311cfl1jf03" type="file" class="form-control" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple="" accept="">
+                            </div>
                             <br>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-block btn-success">Submit</button>
                             </div>
+                            
                     </form>
 
                 </div>
