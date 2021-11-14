@@ -157,7 +157,7 @@ if(isset($_POST['form_submit'])){
     '$contact_time','$insertValuesSQL')";
     $result=$conn->query($sql);
     if($result){
-        $_SESSION['msg']="Data Submitted Successfully";
+        $_SESSION['msg']="Data Submitted Successfully. We Will contact you Shortly";
         header("location:dispatch.php");
         die();
     }
