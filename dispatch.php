@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,9 +85,13 @@
                         <span>Get A Quote</span>
                         <h2>Get A Quote</h2>
                     </div>
+                    <?php if(isset($_SESSION['msg'])){?>
+			<div class="alert alert-success" role="alert">
+			<?php echo $_SESSION['msg'];?>
+			</div>
+		<?php }unset($_SESSION['msg']);?>
 
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4"
-                        data-aos="fade-up" data-aos-delay="400">
+                    <form action="submit.php" method="POST" class="mt-4" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
                                 <label for="company_name" class="mb-2"><b>Company Name <span
@@ -100,7 +108,7 @@
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
                                 <label for="date" class="mb-2"><b>Authority Start Date <span
                                             class="text-danger">*</span></b></label>
-                                <input type="date" class="form-control" name="date" id="date" required>
+                                <input type="date" class="form-control" name="start_date" id="date" required>
                             </div>
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
                                 <label for="date" class="mb-2"><b>Trailer Type <span
@@ -127,15 +135,15 @@
                                         <label for="southeast" id="southeast">Southeast</label>
                                     </li>
                                     <li>
-                                        <input name="Southwest" type="checkbox" value="Southwest" id="Southwest">
+                                        <input name="southwest" type="checkbox" value="Southwest" id="Southwest">
                                         <label for="Southwest" id="Southwest">Southwest</label>
                                     </li>
                                     <li>
-                                        <input name="Northeast" type="checkbox" value="Northeast" id="Northeast">
+                                        <input name="northeast" type="checkbox" value="Northeast" id="Northeast">
                                         <label for="Northeast" id="Northeast">Northeast</label>
                                     </li>
                                     <li>
-                                        <input name="Midwest" type="checkbox" value="Midwest" id="Midwest">
+                                        <input name="midwest" type="checkbox" value="Midwest" id="Midwest">
                                         <label for="Midwest" id="Midwest">Midwest</label>
                                     </li>
                                     <li>
@@ -171,11 +179,11 @@
                                             class="text-danger">*</span></b></label>
                             <ul style="list-style-type:none;" id="freightguard_reports">
                                 <li>
-                                    <input name="freightguard_reports" type="radio" value="Yes" id="freightguardreports">
+                                    <input name="freightguard_reports" type="radio" value="1" id="freightguardreports">
                                     <label for="freightguardreports" id="freightguardreports">Yes</label>
                                 </li>
                                 <li>
-                                    <input name="freightguard_reports" type="radio" value="No" id="freightguard_report">
+                                    <input name="freightguard_reports" type="radio" value="0" id="freightguard_report">
                                     <label for="freightguard_report" id="freightguard_report">No</label>
                                 </li>
                             </ul>
@@ -194,11 +202,11 @@
                                             class="text-danger">*</span></b></label>
                             <ul style="list-style-type:none;" id="tracking_device">
                                 <li>
-                                    <input name="tracking_device" type="radio" value="Yes" id="trackingdevice">
+                                    <input name="tracking_device" type="radio" value="1" id="trackingdevice">
                                     <label for="trackingdevice" id="trackingdevice">Yes</label>
                                 </li>
                                 <li>
-                                    <input name="tracking_device" type="radio" value="No" id="tracking_devicee">
+                                    <input name="tracking_device" type="radio" value="0" id="tracking_devicee">
                                     <label for="tracking_devicee" id="tracking_devicee">No</label>
                                 </li>
                             </ul>
@@ -234,22 +242,20 @@
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
                                 <label for="best_time" class="mb-2"><b>What is the best time of day to contact you? <span
                                             class="text-danger">*</span></b></label>
-                                <input type="text" name="best_time" class="form-control" id="best_time"
+                                <input type="text" name="contact_time" class="form-control" id="contact_time"
                                     placeholder="Best Time of the Day?" required>
                             </div>
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
-                                <label for="best_time" class="mb-2"><b>upload w-9 , certificates of insurance MC# and factory company <span
+                                <label for="docs" class="mb-2"><b>upload w-9 , certificates of insurance MC# and factory company <span
                                             class="text-danger">*</span></b></label>
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
-        <label class="custom-file-label" for="exampleInputFile">
-           Select file...
-        </label>
+                                            <div class="custom-file">
+                                            <input type="file" name="docs[]" class="custom-file-input" id="chooseFile" multiple>
+                                    </div>
                             </div>
                             <br>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-block btn-success">Submit</button>
+                                <button type="submit" name="form_submit" class="btn btn-block btn-success">Submit</button>
                             </div>
-                            
                     </form>
 
                 </div>
