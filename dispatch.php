@@ -249,7 +249,7 @@
                                 <label for="docs" class="mb-2"><b>upload w-9 , certificates of insurance MC# and factory company <span
                                             class="text-danger">*</span></b></label>
                                             <div class="custom-file">
-                                            <input type="file" name="docs[]" class="custom-file-input" id="chooseFile" multiple>
+                                            <input type="file" name="docs[]" class="custom-file-input" id="chooseFile" multiple required>
                                     </div>
                             </div>
                             <br>
