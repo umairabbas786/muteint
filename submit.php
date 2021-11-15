@@ -1,14 +1,4 @@
-<?php      
-    $host = "localhost";  
-    $user = "root";  
-    $password = '';  
-    $db_name = "muteint"; 
-      
-    $conn = mysqli_connect($host, $user, $password, $db_name);  
-    if(mysqli_connect_errno()) {  
-        die("Failed to connect with MySQL: ". mysqli_connect_error());  
-    }  
-?> 
+<?php include "conn.php";?>
 
 <?php
 session_start();
@@ -146,23 +136,15 @@ if(isset($_POST['form_submit'])){
         }
         //--End Multiple Files..
 
-    $sql="insert into dispatch
-    (company_name,motor_carrier,
-    start_date,trailer_type,desired_region,
-    driver_home_time,freightguard_reports,reports,
-    gross_amount,tracking_device,name,title,email,
-    phone,extension,contact_time,docs)
-    values('$company_name','$motor_carrier','$start_date','$trailer_type','$desired_region','$driver_home_time',
-    '$freightguard_reports','$reports','$gross_amount','$tracking_device','$name','$title','$email','$phone','$extension',
-    '$contact_time','$insertValuesSQL')";
+    $sql="insert into dispatch (company_name,motor_carrier,start_date,trailer_type,desired_region,driver_home_time,freightguard_reports,reports,gross_amount,tracking_device,name,title,email,phone,extension,contact_time,docs) values ('$company_name','$motor_carrier','$start_date','$trailer_type','$desired_region','$driver_home_time','$freightguard_reports','$reports','$gross_amount','$tracking_device','$name','$title','$email','$phone','$extension','$contact_time','$insertValuesSQL')";
     $result=$conn->query($sql);
     if($result){
-        $_SESSION['msg']="Data Submitted Successfully. We Will contact you.";
+        $_SESSION['msg']="Data Submitted Successfully. We Will Contact You Soon.";
         header("location:dispatch.php");
         die();
     }
     else{
-        echo $error;
+        $conn->error;
     }
 }
 
