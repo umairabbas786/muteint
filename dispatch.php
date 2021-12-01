@@ -246,10 +246,24 @@
                                     placeholder="Best Time of the Day?" required>
                             </div>
                             <div class="col-md-6 offset-md-3 mb-3 form-group">
-                                <label for="docs" class="mb-2"><b>upload w-9 , certificates of insurance MC# and factory company <span
+                                <label for="docs" class="mb-2"><b>Upload w-9<span
                                             class="text-danger">*</span></b></label>
                                             <div class="custom-file">
-                                            <input type="file" name="docs[]" class="custom-file-input" id="chooseFile" multiple required>
+                                            <input type="file" name="doc1" class="custom-file-input" id="chooseFile" required>
+                                    </div>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="docs" class="mb-2"><b>Upload Certificates of Insurance MC#<span
+                                            class="text-danger">*</span></b></label>
+                                            <div class="custom-file">
+                                            <input type="file" name="doc2" class="custom-file-input" id="chooseFile" required>
+                                    </div>
+                            </div>
+                            <div class="col-md-6 offset-md-3 mb-3 form-group">
+                                <label for="docs" class="mb-2"><b>Upload Factory Company<span
+                                            class="text-danger">*</span></b></label>
+                                            <div class="custom-file">
+                                            <input type="file" name="doc3" class="custom-file-input" id="chooseFile" required>
                                     </div>
                             </div>
                             <br>

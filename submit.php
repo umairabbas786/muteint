@@ -109,34 +109,28 @@ if(isset($_POST['form_submit'])){
     
     $contact_time=$_POST['contact_time'];
 
-    $insertValuesSQL="";
-    //for multiple images
-        // File upload configuration 
-        $targetDir = "assets/docs/";
-        $allowTypes = array('jpg','png','jpeg','gif','pdf','doc'); 
-          
-        $fileNames = array_filter($_FILES['docs']['name']);
-        if(!empty($fileNames)){ 
-            foreach($_FILES['docs']['name'] as $key=>$val){ 
-                // File upload path 
-                $fileName = basename($_FILES['docs']['name'][$key]); 
-                $targetFilePath = $targetDir . $fileName; 
-                 
-                // Check whether file type is valid 
-                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
-                if(in_array($fileType, $allowTypes)){
-                    if(move_uploaded_file($_FILES["docs"]["tmp_name"][$key], $targetFilePath)){
-                        $insertValuesSQL .= $fileName .",";
-                    }
-                }
-            } 
-        }
-        if(!empty($insertValuesSQL)){ 
-            $insertValuesSQL = trim($insertValuesSQL, ',');
-        }
-        //--End Multiple Files..
+    //for image upload..
+    $doc1 = $_FILES["doc1"]["name"];
+    $tempname = $_FILES["doc1"]["tmp_name"];    
+    $folder = "assets/docs/".$doc1;
+    move_uploaded_file($tempname, $folder);
 
-    $sql="insert into dispatch (company_name,motor_carrier,start_date,trailer_type,desired_region,driver_home_time,freightguard_reports,reports,gross_amount,tracking_device,name,title,email,phone,extension,contact_time,docs) values ('$company_name','$motor_carrier','$start_date','$trailer_type','$desired_region','$driver_home_time','$freightguard_reports','$reports','$gross_amount','$tracking_device','$name','$title','$email','$phone','$extension','$contact_time','$insertValuesSQL')";
+    //for image upload..
+    $doc2 = $_FILES["doc2"]["name"];
+    $tempname = $_FILES["doc2"]["tmp_name"];    
+    $folder = "assets/docs/".$doc2;
+    move_uploaded_file($tempname, $folder);
+
+    //for image upload..
+    $doc3 = $_FILES["doc3"]["name"];
+    $tempname = $_FILES["doc3"]["tmp_name"];    
+    $folder = "assets/docs/".$doc3;
+    move_uploaded_file($tempname, $folder);
+
+    $docs=array($doc1,$doc2,$doc3);
+    $final_docs= implode(",",$docs);
+
+    $sql="insert into dispatch (company_name,motor_carrier,start_date,trailer_type,desired_region,driver_home_time,freightguard_reports,reports,gross_amount,tracking_device,name,title,email,phone,extension,contact_time,docs) values ('$company_name','$motor_carrier','$start_date','$trailer_type','$desired_region','$driver_home_time','$freightguard_reports','$reports','$gross_amount','$tracking_device','$name','$title','$email','$phone','$extension','$contact_time','$final_docs')";
     $result=$conn->query($sql);
     if($result){
         $_SESSION['msg']="Data Submitted Successfully. We Will Contact You Soon.";
