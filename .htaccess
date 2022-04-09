@@ -1,0 +1,13 @@
+AddDefaultCharset UTF-8
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^muteint.com$
+RewriteRule ^(.*)$ https://muteint.com/$1 [R=301,L]
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 47.9.91.37
+deny from 47.9.69.47
+deny from 92.119.177.62
